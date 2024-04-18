@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Implementando chart.js</title>
+</head>
+
+<body>
+
+  <div id="div_Tudo" style="
+  
+  margin: 15px;
+  display: flex;
+  justify-content: space-around;
+  padding: 200px;
+  align-items: center;
+  flex-direction: Row;
+  ">
+    <div id="Line" style="width: 1000%;">
+      <canvas id="mycharLine"></canvas>
+    </div>
+  
+    <div style="width: 1000%;;">
+      <canvas id="mycharBar"></canvas>
+    </div>
+
+  </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('mycharLine');
+  const ctxBar = document.getElementById('mycharBar');
+
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+      datasets: [{
+        label: 'Temperatura',
+        data: [30, 29, 28, 25, 22, 23],
+        borderWidth: 1,
+        borderColor: 'rgb(250, 0,0)',
+        backgroundColor: 'rgb(250,0,0)'
+
+      }, {
+        label: 'Umidade',
+        data: [80, 82, 80, 85, 80, 83],
+        borderWidth: 1,
+        borderColor: 'rgb(0,0,255)',
+        backgroundColor: 'rgb(0,0,200)'
+
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+      labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+      datasets: [{
+        label: 'Temperatura',
+        data: [22, 24, 27, 23, 20, 18],
+        borderWidth: 3,
+        borderColor: 'rgb(250, 0,0)',
+        backgroundColor: 'rgb(250,0,0)'
+      }, {
+        label: 'Umidade',
+        data: [90, 89, 93, 87, 88, 82],
+        borderWidth: 3,
+        borderColor: 'rgb(90, 100, 255)',
+        backgroundColor: 'rgb(90, 150, 222)'
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+</script>
+
+</html>
